@@ -1,5 +1,5 @@
 const carCanvas = document.getElementById('carCanvas');
-carCanvas.width = 300;
+carCanvas.width = 250;
 const networkCanvas = document.getElementById('networkCanvas');
 networkCanvas.width = window.innerWidth/3;
 
@@ -8,7 +8,7 @@ const networkCtx = networkCanvas.getContext("2d");
 
 const road = new Road(carCanvas.width/2,carCanvas.width*0.9);
 
-const N=100;
+const N=50;
 const cars = generateCars(N);
 
 
@@ -19,7 +19,7 @@ if(localStorage.getItem("bestBrain")){
         cars[i].brain=JSON.parse(
             localStorage.getItem("bestBrain"));
         if(i!=0){
-            NeuralNetwork.mutate(cars[i].brain,0.1);
+            NeuralNetwork.mutate(cars[i].brain,0.2);
         }
     }
 }
@@ -28,9 +28,7 @@ if(localStorage.getItem("bestBrain")){
 const traffic=[];
 
 for (let i=0;i<99;i++){
-    let distance=-100-i*2*100;
-    traffic.push(new Car(road.getLaneCenter(getRandomInt(5)),distance,30,50,"DUMMY",2,getRandomColor()));
-    traffic.push(new Car(road.getLaneCenter(getRandomInt(5)),distance,30,50,"DUMMY",2,getRandomColor()));
+    let distance=-500-i*2*200;
     traffic.push(new Car(road.getLaneCenter(getRandomInt(5)),distance,30,50,"DUMMY",2,getRandomColor()));
     traffic.push(new Car(road.getLaneCenter(getRandomInt(5)),distance,30,50,"DUMMY",2,getRandomColor()));
 }
@@ -41,7 +39,7 @@ function save(){
     localStorage.setItem("bestBrain",JSON.stringify(bestCar.brain));
     console.log(localStorage)
     const out = document.getElementById("save");
-    out.innerText = "save";
+    out.style.display="block";
 }
 
 function discard(){
