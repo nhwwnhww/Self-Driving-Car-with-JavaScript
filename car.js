@@ -12,8 +12,6 @@ class Car{
         this.angle=0;
         this.damaged=false;
 
-        console.log(sensor_number)
-
         this.useBrain=controlType=="AI";
 
         if(controlType!="DUMMY"){

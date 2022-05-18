@@ -1,6 +1,4 @@
 function upload(){
-    const info_box = document.getElementById("information_box");
-    info_box.width=window.innerWidth/4;
 
     let road_number_update=document.getElementById("road_number").value;
     let Car_number_update=document.getElementById("Car_number").value;
