@@ -110,6 +110,11 @@ function discard(){
     location.reload();
 }
 
+function reset(){
+    localStorage.clear();
+    location.reload();
+}
+
 function generateCars(N){
     const cars=[];
 

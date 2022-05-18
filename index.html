@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Self-driving car</title>
+
     <style>
         body{
             margin: 0;
@@ -59,15 +60,18 @@
         <label>Neuron</label>
         <input id="Neuron_number" type="text">
         <button onclick="upload()">Upload</button>
+        <button onclick="upload()" style="background-color: green;">Start</button>
     </div>
+    <script src="./information_box.js"></script>
+
     <canvas id="carCanvas"></canvas>
     <div id="verticalButtons">
         <button onclick="save()">save💾</button>
         <button onclick="location.reload()" id="try_again">Try Again</button>
         <button onclick="discard()">Delete the data🗑️</button>
+        <button onclick="reset()">reset</button>
     </div>
     <canvas id="networkCanvas"></canvas>
-    <script src="./information_box.js"></script>
     <script src="./visualizer.js"></script> 
     <script src="./network.js"></script>
     <script src="./sensor.js"></script>
@@ -76,5 +80,6 @@
     <script src="./controls.js"></script>
     <script src="./car.js"></script>
     <script src="./main.js"></script>
+
 </body>
 </html>
