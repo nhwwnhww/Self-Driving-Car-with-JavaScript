@@ -1,6 +1,6 @@
 function input_value(target,input){
-    let html_target = document.getElementById(target);
-    html_target.setAttribute('value', input);
+    let value_target = document.getElementById(target);
+    value_target.setAttribute('value', input);
 }
 
 function getRandomInt(max) {
