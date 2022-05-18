@@ -1,3 +1,7 @@
+function input_value(target,input){
+    target.setAttribute('value', input);
+}
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }

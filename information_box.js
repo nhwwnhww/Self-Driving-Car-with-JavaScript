@@ -1,0 +1,18 @@
+function upload(){
+    const info_box = document.getElementById("information_box");
+    info_box.width=window.innerWidth/4;
+
+    let road_number_update=document.getElementById("road_number").value;
+    let Car_number_update=document.getElementById("Car_number").value;
+    let Sensor_number_update=document.getElementById("Sensor_number").value;
+    let Neuron_number_update=document.getElementById("Neuron_number").value;
+
+    localStorage.clear();
+
+    localStorage.setItem("road_number_update",road_number_update==''?3:road_number_update);
+    localStorage.setItem("Car_number_update",Car_number_update==''?10:Car_number_update);
+    localStorage.setItem("Sensor_number_update",Sensor_number_update==''?5:Sensor_number_update);
+    localStorage.setItem("Neuron_number_update",Neuron_number_update==''?6:Neuron_number_update);
+
+    location.reload();
+}

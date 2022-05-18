@@ -14,6 +14,19 @@
             justify-content: center;
             align-items: center;
         }
+        #information_box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-right: 2%;
+        }
+
+        #try_again{
+            margin-top: 10%;
+            margin-bottom: 10%;
+        }
+
         #verticalButtons{
             display:flex;
             flex-direction: column;
@@ -21,7 +34,7 @@
         button{
             border: none;
             border-radius: 5px;
-            padding: 5px 5px 7px 5px;
+            padding: 10px 10px 7px 5px;
             margin: 2px;
             cursor: pointer;
         }
@@ -34,13 +47,25 @@
     </style>
 </head>
 <body>
+    <div id="information_box">
+        <label>Road</label>
+        <input id="road_number" type="text">
+        <label>test Car</label>
+        <input id="Car_number" type="text">
+        <label>Sensor</label>
+        <input id="Sensor_number" type="text">
+        <label>Neuron</label>
+        <input id="Neuron_number" type="text">
+        <button onclick="upload()">Upload</button>
+    </div>
     <canvas id="carCanvas"></canvas>
     <div id="verticalButtons">
         <button onclick="save()">save💾</button>
-        <button onclick="discard()">rubbish🗑️</button>
-        <h6 id="save" style="display: none;">saved</h6>
+        <button onclick="location.reload()" id="try_again">Try Again</button>
+        <button onclick="discard()">Delete the data🗑️</button>
     </div>
     <canvas id="networkCanvas"></canvas>
+    <script src="./information_box.js"></script>
     <script src="./visualizer.js"></script> 
     <script src="./network.js"></script>
     <script src="./sensor.js"></script>
