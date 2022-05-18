@@ -66,7 +66,7 @@ const traffic=[];
 
 for (let i=0;i<99;i++){
     let distance=-100-i*2*100;
-    for (let i=0;i<=parseInt(obstacle_update);i++){
+    for (let i=0;i<parseInt(obstacle_update);i++){
         traffic.push(new Car(road.getLaneCenter(getRandomInt(parseInt(road_number))),distance,car_width,car_height,"DUMMY",2,getRandomColor()));
     };
 }
