@@ -53,10 +53,14 @@
     <div id="information_box">
         <label>Road</label>
         <input id="road_number" type="text">
+        <label>obstacle</label>
+        <input id="obstacle" type="text">
         <label>test Car</label>
         <input id="Car_number" type="text">
         <label>Sensor</label>
         <input id="Sensor_number" type="text">
+        <label>Sensor_length</label>
+        <input id="Sensor_length" type="text">
         <label>Neuron</label>
         <input id="Neuron_number" type="text">
         <button onclick="upload()">Upload</button>
@@ -72,10 +76,12 @@
         <button onclick="reset()">reset</button>
     </div>
     <canvas id="networkCanvas"></canvas>
+
+    <script src="./utils.js"></script>
+    <script src="./check_info.js"></script>
     <script src="./visualizer.js"></script> 
     <script src="./network.js"></script>
     <script src="./sensor.js"></script>
-    <script src="./utils.js"></script>
     <script src="./road.js"></script>
     <script src="./controls.js"></script>
     <script src="./car.js"></script>

@@ -2,7 +2,13 @@ class Sensor{
     constructor(car,number=5){
         this.car=car;
         this.rayCount=number;
-        this.rayLength=600;
+
+        let Sensor_length_update = 300;
+        if(localStorage.getItem("Sensor_length_update")){
+            Sensor_length_update=localStorage.getItem("Sensor_length_update");
+        }
+        this.rayLength=Sensor_length_update;
+        
         this.raySpread=Math.PI/4;
 
         this.rays=[];

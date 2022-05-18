@@ -1,28 +1,4 @@
-if (localStorage.getItem("road_number_update")){
-    var road_update = localStorage.getItem("road_number_update");
-    let display_road_number=document.getElementById("road_number");
-    input_value(display_road_number,road_update);
-}
-if (localStorage.getItem("Car_number_update")){
-    var Car_update = localStorage.getItem("Car_number_update");
-    let display_Car_number=document.getElementById("Car_number");
-    input_value(display_Car_number,Car_update);
-}
-if (localStorage.getItem("Sensor_number_update")){
-    var Sensor_update = localStorage.getItem("Sensor_number_update");
-    let display_Sensor_number=document.getElementById("Sensor_number");
-    input_value(display_Sensor_number,Sensor_update);
-    Sensor_update = parseInt(Sensor_update);
-}
-if (localStorage.getItem("Neuron_number_update")){
-    var Neuron_update = localStorage.getItem("Neuron_number_update");
-    let display_Neuron_number=document.getElementById("Neuron_number");
-    input_value(display_Neuron_number,Neuron_update);
-    Neuron_update = parseInt(Neuron_update);
-}
-    
-let phone_mode = false;
-    
+
 const carCanvas = document.getElementById('carCanvas');
 const networkCanvas = document.getElementById('networkCanvas');
 const info_box = document.getElementById("information_box");
@@ -51,8 +27,6 @@ else{
     carCanvas.width = 200;
     networkCanvas.width = window.innerWidth/2;
 }
-
-
 
 const carCtx = carCanvas.getContext("2d");
 const networkCtx = networkCanvas.getContext("2d");
@@ -92,8 +66,9 @@ const traffic=[];
 
 for (let i=0;i<99;i++){
     let distance=-100-i*2*100;
-    traffic.push(new Car(road.getLaneCenter(getRandomInt(5)),distance,car_width,car_height,"DUMMY",2,getRandomColor()));
-    traffic.push(new Car(road.getLaneCenter(getRandomInt(5)),distance,car_width,car_height,"DUMMY",2,getRandomColor()));
+    for (let i=0;i<=parseInt(obstacle_update);i++){
+        traffic.push(new Car(road.getLaneCenter(getRandomInt(parseInt(road_number))),distance,car_width,car_height,"DUMMY",2,getRandomColor()));
+    };
 }
 
 
@@ -122,13 +97,18 @@ function generateCars(N){
     let Neuron_info=6;
     
     if(Sensor_update && Neuron_update){
+        Sensor_update=parseInt(Sensor_update);
+        Neuron_update=parseInt(Neuron_update);
+
         Sensor_info=Sensor_update;
         Neuron_info=Neuron_update;
     }
     else if(Sensor_update){
+        Sensor_update=parseInt(Sensor_update);
         Sensor_info=Sensor_update;
     }
     else if(Neuron_update){
+        Neuron_update=parseInt(Neuron_update);
         Neuron_info=Neuron_update;
     }
     
