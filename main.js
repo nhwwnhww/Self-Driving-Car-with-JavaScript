@@ -2,6 +2,8 @@
 const carCanvas = document.getElementById('carCanvas');
 const networkCanvas = document.getElementById('networkCanvas');
 const info_box = document.getElementById("information_box");
+const verticalButtons = document.getElementById("verticalButtons");
+const upload_buttons = document.getElementById("upload_buttons");
 
 var car_width=30;
 var car_height=50;

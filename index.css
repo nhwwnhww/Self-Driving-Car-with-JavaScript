@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    background: darkgray;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#information_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2%;
+    flex-direction: column;
+}
+input{
+    width: 100%;
+}
+
+#try_again{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+#verticalButtons{
+    display:flex;
+    flex-direction: column;
+}
+button{
+    border: none;
+    border-radius: 5px;
+    padding: 10px 10px 7px 5px;
+    margin: 2px;
+    cursor: pointer;
+}
+#carCanvas {
+    background: lightgray;
+}
+#networkCanvas {
+    background:black;
+}

@@ -6,48 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Self-driving car</title>
 
-    <style>
-        body{
-            margin: 0;
-            background: darkgray;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #information_box{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-right: 2%;
-        }
-        input{
-            width: 100%;
-        }
-
-        #try_again{
-            margin-top: 10%;
-            margin-bottom: 10%;
-        }
-
-        #verticalButtons{
-            display:flex;
-            flex-direction: column;
-        }
-        button{
-            border: none;
-            border-radius: 5px;
-            padding: 10px 10px 7px 5px;
-            margin: 2px;
-            cursor: pointer;
-        }
-        #carCanvas {
-            background: lightgray;
-        }
-        #networkCanvas {
-            background:black;
-        }
-    </style>
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <div id="information_box">
@@ -76,8 +35,8 @@
         </script>
         <label>Neuron</label>
         <input id="Neuron_number" type="text">
-        <button onclick="upload()">Upload</button>
-        <button onclick="upload()" style="background-color: green;">Start</button>
+        <button onclick="upload()" id="upload_buttons">Upload</button>
+        <button onclick="upload()" id="start_buttons" style="background-color: green;">Start</button>
     </div>
     <script src="./information_box.js"></script>
 
@@ -113,6 +72,20 @@
     <script src="./controls.js"></script>
     <script src="./car.js"></script>
     <script src="./main.js"></script>
+
+    <script>
+        if (localStorage.getItem("road_number_update")){
+        var starts = document.getElementById("start_buttons");
+        starts.style.display = 'none';
+        }
+        else{
+            carCanvas.style.display = 'none';
+            networkCanvas.style.display = 'none';
+            verticalButtons.style.display = 'none';
+            upload_buttons.style.display = 'none';
+            info_box.height= window.innerHeight;
+        }
+    </script>
 
 </body>
 </html>
