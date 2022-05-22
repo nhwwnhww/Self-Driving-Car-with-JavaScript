@@ -18,7 +18,7 @@ class Car{
             
                 this.sensor=new Sensor(this,sensor_number);
                 this.brain=new NeuralNetwork(
-                    [this.sensor.rayCount,nerual_number,3]
+                    [this.sensor.rayCount,nerual_number,parseInt(Car_controls_update)]
                 )
         }
 

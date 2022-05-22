@@ -53,14 +53,27 @@
     <div id="information_box">
         <label>Road</label>
         <input id="road_number" type="text">
-        <label>obstacle</label>
+        <label>Obstacle</label>
         <input id="obstacle" type="text">
-        <label>test Car</label>
+        <label>Test Car</label>
         <input id="Car_number" type="text">
+        <label>Car Controls</label>
+        <select id="Car_controls" size="1" autofocus>
+            <option value="3" id="Car_controls_3">⬆️⬅️➡️</option>
+            <option value="4" id="Car_controls_4">⬆️⬅️➡️⬇️</option>
+        </select>
         <label>Sensor</label>
         <input id="Sensor_number" type="text">
-        <label>Sensor_length</label>
+        <label>Sensor length</label>
         <input id="Sensor_length" type="text">
+        <label>Sensor Radius</label>
+        <input id="Sensor_radius" type="range" min="0.5" step="0.5" oninput="document.getElementById('Sensor_radius_show').innerText=this.value" value="3">
+        <label id="Sensor_radius_show"></label>
+        <script>
+            var Sensor_radius_input = document.getElementById("Sensor_radius");
+            Sensor_radius_input.setAttribute("max",12);
+            var Sensor_radius = Math.PI/Sensor_radius_input.value;
+        </script>
         <label>Neuron</label>
         <input id="Neuron_number" type="text">
         <button onclick="upload()">Upload</button>
@@ -79,6 +92,20 @@
 
     <script src="./utils.js"></script>
     <script src="./check_info.js"></script>
+
+    <script>
+        if (localStorage.getItem("Car_controls_update")){
+            var Car_controls_3 = document.getElementById("Car_controls_3");
+            var Car_controls_4 = document.getElementById("Car_controls_4");
+            if (localStorage.getItem("Car_controls_update")==3){
+                Car_controls_3.setAttribute('selected','selected');
+            }
+            else {
+                Car_controls_4.setAttribute('selected','selected');
+            }
+        }
+    </script>
+
     <script src="./visualizer.js"></script> 
     <script src="./network.js"></script>
     <script src="./sensor.js"></script>

@@ -9,7 +9,7 @@ class Sensor{
         }
         this.rayLength=Sensor_length_update;
         
-        this.raySpread=Math.PI/4;
+        this.raySpread=Math.PI/Sensor_radius_update;
 
         this.rays=[];
         this.readings=[];
