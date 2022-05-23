@@ -4,41 +4,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+
     <title>Self-driving car</title>
 
     <link rel="stylesheet" href="./index.css">
 </head>
-<body>
-    <div id="information_box">
-        <label>Road</label>
-        <input id="road_number" type="text">
-        <label>Obstacle</label>
-        <input id="obstacle" type="text">
-        <label>Test Car</label>
-        <input id="Car_number" type="text">
-        <label>Car Controls</label>
-        <select id="Car_controls" size="1" autofocus>
-            <option value="3" id="Car_controls_3">⬆️⬅️➡️</option>
-            <option value="4" id="Car_controls_4">⬆️⬅️➡️⬇️</option>
-        </select>
-        <label>Sensor</label>
-        <input id="Sensor_number" type="text">
-        <label>Sensor length</label>
-        <input id="Sensor_length" type="text">
-        <label>Sensor Radius</label>
-        <input id="Sensor_radius" type="range" min="0.5" step="0.5" oninput="document.getElementById('Sensor_radius_show').innerText=this.value" value="3">
-        <label id="Sensor_radius_show"></label>
-        <script>
-            var Sensor_radius_input = document.getElementById("Sensor_radius");
-            Sensor_radius_input.setAttribute("max",12);
-            var Sensor_radius = Math.PI/Sensor_radius_input.value;
-        </script>
-        <label>Neuron</label>
-        <input id="Neuron_number" type="text">
-        <button onclick="upload()" id="upload_buttons">Upload</button>
-        <button onclick="upload()" id="start_buttons" style="background-color: green;">Start</button>
+<body id="body">
+    <div id="setting_buttons">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="modal_buttons">
+            Setting
+        </button>
+        <button onclick="upload()" class="btn btn-success" id="start_buttons">
+            start
+        </button>
     </div>
-    <script src="./information_box.js"></script>
+        <!-- 模态框 -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+        <div class="modal-content">
+    
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+            <h4 class="modal-title">Setting</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+    
+            <!-- 模态框内容 -->
+            <div class="modal-body">
+                <div id="information_box">
+                    <label>Road</label>
+                    <input id="road_number" type="text">
+                    <label>Obstacle</label>
+                    <input id="obstacle" type="text">
+                    <label>Test Car</label>
+                    <input id="Car_number" type="text">
+                    <label>Car Controls</label>
+                    <select id="Car_controls" size="1" autofocus>
+                        <option value="3" id="Car_controls_3">⬆️⬅️➡️</option>
+                        <option value="4" id="Car_controls_4">⬆️⬅️➡️⬇️</option>
+                    </select>
+                    <br>
+                    <label>Sensor</label>
+                    <input id="Sensor_number" type="text">
+                    <label>Sensor length</label>
+                    <input id="Sensor_length" type="text">
+                    <label>Sensor Radius</label>
+                    <input id="Sensor_radius" type="range" min="0.5" step="0.5" oninput="document.getElementById('Sensor_radius_show').innerText=this.value" value="3">
+                    <label id="Sensor_radius_show"></label>
+                    <br>
+                    <script>
+                        var Sensor_radius_input = document.getElementById("Sensor_radius");
+                        Sensor_radius_input.setAttribute("max",12);
+                        var Sensor_radius = Math.PI/Sensor_radius_input.value;
+                    </script>
+                    <label>Neuron</label>
+                    <input id="Neuron_number" type="text">
+                    
+                </div>
+            </div>
+    
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button onclick="upload()" id="upload_buttons" class="btn btn-primary">Upload</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+    
+        </div>
+        </div>
+    </div>
+  
 
     <canvas id="carCanvas"></canvas>
     <div id="verticalButtons">
@@ -65,6 +102,9 @@
         }
     </script>
 
+
+    <script src="./information_box.js"></script>
+
     <script src="./visualizer.js"></script> 
     <script src="./network.js"></script>
     <script src="./sensor.js"></script>
@@ -74,16 +114,14 @@
     <script src="./main.js"></script>
 
     <script>
-        if (localStorage.getItem("road_number_update")){
         var starts = document.getElementById("start_buttons");
+        if (localStorage.getItem("road_number_update")){
         starts.style.display = 'none';
         }
         else{
             carCanvas.style.display = 'none';
             networkCanvas.style.display = 'none';
             verticalButtons.style.display = 'none';
-            upload_buttons.style.display = 'none';
-            info_box.height= window.innerHeight;
         }
     </script>
 

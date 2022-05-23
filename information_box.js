@@ -1,5 +1,7 @@
 function upload(){
 
+    localStorage.clear();
+
     let road_number_update=document.getElementById("road_number").value;
     let obstacle=document.getElementById("obstacle").value;
     let Car_number_update=document.getElementById("Car_number").value;
@@ -8,8 +10,6 @@ function upload(){
     let Sensor_length_update=document.getElementById("Sensor_length").value;
     let Sensor_radius_update=document.getElementById("Sensor_radius").value;
     let Neuron_number_update=document.getElementById("Neuron_number").value;
-
-    localStorage.clear();
 
     localStorage.setItem("road_number_update",road_number_update==''?3:road_number_update);
     localStorage.setItem("obstacle_update",obstacle==''?2:obstacle);
