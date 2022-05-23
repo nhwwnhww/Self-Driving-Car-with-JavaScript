@@ -52,7 +52,7 @@
                     <label>Sensor length</label>
                     <input id="Sensor_length" type="text">
                     <label>Sensor Radius</label>
-                    <input id="Sensor_radius" type="range" min="0.5" step="0.5" oninput="document.getElementById('Sensor_radius_show').innerText=this.value" value="3">
+                    <input id="Sensor_radius" type="range" min="0.5" step="0.5" oninput="document.getElementById('Sensor_radius_show').innerText=this.value" value="3" style="width:80%;">
                     <label id="Sensor_radius_show"></label>
                     <br>
                     <script>
@@ -79,10 +79,10 @@
 
     <canvas id="carCanvas"></canvas>
     <div id="verticalButtons">
-        <button onclick="save()">save💾</button>
-        <button onclick="location.reload()" id="try_again">Try Again</button>
-        <button onclick="discard()">Delete the data🗑️</button>
-        <button onclick="reset()">reset</button>
+        <button onclick="save()" class="btn-primary">save💾</button>
+        <button onclick="location.reload()" id="try_again" class="btn-info">Try Again</button>
+        <button onclick="discard()" class="btn-danger">Delete the data🗑️</button>
+        <button onclick="reset()" class="btn-secondary">reset</button>
     </div>
     <canvas id="networkCanvas"></canvas>
 

@@ -20,7 +20,7 @@ body{
     flex-direction: column;
 }
 input{
-    width: 100%;
+    width: 60%;
 }
 
 #try_again{
